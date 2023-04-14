@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Delicious+Handrawn&family=Noto+Sans+TC:wght@400;700;900&family=Nunito:wght@900&family=Pacifico&family=Tilt+Neon&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Nunito", sans-serif;
+}
+
+@mixin flex($jc, $ac) {
+	display: flex;
+	align-items: $ac;
+	justify-content: $jc;
+}
+body::-webkit-scrollbar {
+	display: none;
+}
+
+.App {
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	background: #fcf91e;
+	height: 100vh;
+	width: 100vw;
+	overflow-x: hidden;
+	@include flex(center, center);
+	> .todo-wrapper {
+		width: 50%;
+		padding: 3rem;
+		border: 2px solid rgb(160, 253, 0);
+		background: #67ba00;
+		border-radius: 10px;
+		@include flex(center, center);
+		flex-direction: column;
+		> h1 {
+			color: rgb(81, 13, 13);
+			margin: 1.2rem;
+			font-size: 3rem;
+		}
+		> .TodoForm {
+			flex-direction: column;
+			@include flex(center, center);
+			> .todo-input {
+				border: none;
+				outline: none;
+				font-family: "Nunito", sans-serif;
+				border-bottom: 2px solid rgb(5, 131, 5);
+				width: 24rem;
+				font-family: "Trebuchet MS", "Lucida Sans Unicode",
+					"Lucida Grande", "Lucida Sans", Arial, sans-serif;
+				background: none;
+				font-size: 1.2rem;
+			}
+			> .todo-btn {
+				background: none;
+				border-radius: 10px;
+				font-size: 1.2rem;
+				padding: 10px;
+				margin: 10px;
+				border: 2px solid rgb(5, 131, 5);
+			}
+		}
+		> .todo {
+			border-radius: 10px;
+			border: 2px solid rgb(5, 131, 5);
+			@include flex(space-between, center);
+			width: 24rem;
+			height: 2.3rem;
+			font-size: 1.2rem;
+			padding: 10px;
+			> div > .icon {
+				color: white;
+				padding: 5px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.App {
+		> .todo-wrapper {
+			width: 90vw;
+			padding: 2rem;
+			height: 100vh;
+			> h1 {
+				text-align: center;
+				margin: 2rem;
+				font-size: 2.63rem;
+			}
+			> .TodoForm > .todo-input {
+				width: 95vw;
+				font-size: 1.2rem;
+			}
+			
+			> .todo {
+				width: 90vw;
+				height: 2.3rem;
+			}
+		}
+	}
+}
